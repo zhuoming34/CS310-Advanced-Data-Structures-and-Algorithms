@@ -1,0 +1,28 @@
+1)	// iterative
+int sumofsquare (int n) {
+	int i = 1;
+	int sum = 0;
+	while (i <= n) {
+		sum += (i * i);
+		i += 1;
+}
+}
+
+2)	// non-tail recursive
+int sumofsquare (int n) {
+	if (n == 1)
+		return 1;
+	else
+		return (n * n + sumofsquare(n-1)); 
+}
+ 
+3)	// tail-recursive
+int sumofsquare (int n) {
+		return helper(n,1);
+}
+int helper (int n, int sum) {
+	if (n > 1) {
+		return helper(n - 1, n * n + sum);
+	}
+	return sum;
+}
